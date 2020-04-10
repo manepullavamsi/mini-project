@@ -7,7 +7,6 @@ from ibm_watson import LanguageTranslatorV3
 print("  ****** Welcome to  'Vamsi' Translator english to french and spansih *******\n\n\n")
       
 choice=int(input("eenter your choice: \n1.AudioFile \n2.Speaklive\n3.enter text manually\n Enter a idex number above options :  "))
-l=str(input("enter a languageshortcut: "))
 if (choice == 1):
     
     url_speechtotext = "https://api.eu-gb.speech-to-text.watson.cloud.ibm.com/instances/1722eacb-4b3b-4918-bb09-f7622afdcb57"#replace speech _to_text urlwhich had copied after creating speech to text service in IBM Cloud
