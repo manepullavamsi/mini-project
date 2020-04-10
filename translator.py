@@ -15,7 +15,7 @@ if (choice == 1):
     authenticator = IAMAuthenticator(iam_apikey_s2t)
     s2t = SpeechToTextV1(authenticator=authenticator)
     s2t.set_service_url(url_s2t)
-    filename='PolynomialRegressionandPipelines.mp3'
+    filename='Audio.mp3'
     with open(filename, mode="rb")  as wav:
         response = s2t.recognize(audio=wav, content_type='audio/mp3')
     response.result
