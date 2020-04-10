@@ -10,11 +10,12 @@ choice=int(input("eenter your choice: \n1.AudioFile \n2.Speaklive\n3.enter text 
 l=str(input("enter a languageshortcut: "))
 if (choice == 1):
     
-    url_s2t = "https://api.eu-gb.speech-to-text.watson.cloud.ibm.com/instances/1722eacb-4b3b-4918-bb09-f7622afdcb57"
-    iam_apikey_s2t = "nf_XpCHUiwQQAVnO7l2GLmlVUzgRQFk3SI-cDYxBzw1A"
-    authenticator = IAMAuthenticator(iam_apikey_s2t)
+    url_speechtotext = "https://api.eu-gb.speech-to-text.watson.cloud.ibm.com/instances/1722eacb-4b3b-4918-bb09-f7622afdcb57"#replace speech _to_text urlwhich had copied after creating speech to text service in IBM Cloud
+      
+    api_key_speechtotext = "nf_XpCHUiwQQAVnO7l2GLmlVUzgRQFk3SI-cDYxBzw1A"
+    authenticator = IAMAuthenticator(api_key_speechtotext)
     s2t = SpeechToTextV1(authenticator=authenticator)
-    s2t.set_service_url(url_s2t)
+    s2t.set_service_url(url_speechtotext)
     filename='Audio.mp3'
     with open(filename, mode="rb")  as wav:
         response = s2t.recognize(audio=wav, content_type='audio/mp3')
@@ -42,12 +43,12 @@ elif(choice == 2):
 elif (choice == 3):
     recognized_text=str(input("Enter a text to convert French or Spanish\n"))#text manually
 #translator
-url_lt='https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/ebb9677b-6b06-4b91-8990-432553e659f0'
-apikey_lt='p_NArNzxcsSNie7oOMud9sHg3tZ1RubejGKxluVkmK_5'
+url_translator='https://api.eu-gb.language-translator.watson.cloud.ibm.com/instances/ebb9677b-6b06-4b91-8990-432553e659f0'
+apikey_translator='p_NArNzxcsSNie7oOMud9sHg3tZ1RubejGKxluVkmK_5'
 version_lt='2018-05-01'
-authenticator = IAMAuthenticator(apikey_lt)
+authenticator = IAMAuthenticator(apikey_translator)
 language_translator = LanguageTranslatorV3(version=version_lt,authenticator=authenticator)
-language_translator.set_service_url(url_lt)
+language_translator.set_service_url(url_translator)
 language_translator
 
 
